@@ -1,0 +1,186 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['email'])){
+      header("Location: ../login.html");
+    } else if (!$_SESSION['isLoggedIn']) {
+        http_response_code(403);
+        echo "You are not allowed here";
+        exit();
+    }
+?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ShareCare</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css"/>-->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="logo" href="../index.html"><img id="logo" src="../img/resizeSmall.png"></img></a>
+    <div class="slogan">Environmental Cheering!</div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        <li class="nav-item active">
+          <a id="home" class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../seeAds.html">See ads</a>
+        </li>
+
+        <li class="nav-item">
+          <a id="placeAds" class="nav-link" href="../placeAds.html">Place ads</a>
+        </li>
+      <li class="nav-item">
+          <a id="statsPage" class="nav-link" href="../reports/Statistics.html">Statistics</a>
+        </li>
+
+        <li class="nav-item">
+          <a id="userProfile" class="nav-link" href="../userProfile/userProfile.html">User profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a id="login" class="nav-link" href="../login/login.html">Log in/ Sign Up</a>
+        </li>
+
+        <li class="nav-item">
+          <a id="logout" class="nav-link" href="../logout/logout.php">Log out</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+  <div id="mainBoxUserPanel">
+    <div id="text">User profile</div>
+    <hr id="slogan2">
+
+    <!--panel for user -->
+
+    <div id="panelUser" class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <!--epost-->
+          <div id="rowinside1"></div>
+        </div>
+        <div id="firstName"></div>
+        <div id="lastName"></div>
+
+        <hr>
+      
+        <div class="col-sm">
+          <div id="title1">Listings</div>
+            <table id="tableListings">
+            </table>
+        </div>
+          
+            <hr>
+            
+            <div class="col-sm">
+              <div id="title2">Requested Items</div>
+              <table id="tableInsideRow3">
+              </table>
+            </div>
+
+          </div>
+      
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+
+  <!-- removelistingModal -->
+  <div class="modal" tabindex="-1" role="dialog" id="removelistingModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Remove Listing</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+        </div>
+        <div class="modal-body">
+          <span class="hidden" id="removeListingId"></span>
+          <h2>Are you sure you wish to remove this listing?</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="confirmRemoveListing" data-dismiss="modal">Confirm Remove</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- updateListingModal -->
+  <div class="modal" id="updateListingModal" role="dialog" aria-labelledby="updateListingModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateListingModalTitle">Update Ad</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" id="updateListingModalBody">
+          <span class="hidden" id="updateListingId"></span>
+          <form id="form2">
+            <div class="form-group">
+              <label for="listingTitle">Ad Title</label>
+              <input type="text" class="form-control" id="listingTitle" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="itemLocation">Item Location</label>
+              <input type="text" class="form-control" id="itemLocation" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="itemDescription">Description</label>
+              <input type="text" class="form-control" id="itemDescription" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="itemAvailability">Availability</label>
+              <input type="text" class="form-control" id="itemAvailability" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="adCategory">Ad Category</label>
+              <select name="category" class="form-control" id="adCategory"><option value="">Select One</option></select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+          <button type="button" class="btn btn-success" id="updateListingModalBtn">Update Listing</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- updateListingModal -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="userProfileScript.js"></script>
+
+</body>
+</html>

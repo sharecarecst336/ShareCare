@@ -1,0 +1,306 @@
+@media (min-width:0px) and (max-width:688px) {
+
+    .slogan {
+        display: none;
+        margin: 0 auto;
+    }
+
+}
+
+#mainBox {
+   display: flex;
+   justify-content: center;
+}
+.thumbnail { 
+	width: 200px;
+	height: 200px;
+	}
+#form{
+    width: 45%;
+}
+.progress-bar{
+    background-color: #7ED321;
+}
+#createAdBtn{
+    margin-bottom: 20px;
+    background-color: #7ED321;
+    border-color: white;
+    
+}
+
+#searchBtn{
+   background-color: #7ED321;
+   border-color: white; 
+}
+#searcBox{
+    height: 300px;
+}
+
+#form2{
+    width: 32%;
+}
+#text {
+
+    margin: 5px;
+    color: #7ED321;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.form-check{
+    margin-left: 5px;
+    margin-top: 24px;
+}
+.bg-light {
+    background-color: #0c4073 !important;
+}
+
+#logo {
+    /*#7ED321*/
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.slogan {
+    color: #7ED321;
+    font-weight: bold;
+    margin-right: 100px;
+    font-size: 20px;
+}
+
+.nav-link,
+#signIn {
+    color: #7ED321 !important;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.bg-light {
+    background-color: B3FFB3 !important;
+}
+
+hr {
+    margin-top: 0px;
+}
+
+#text {
+    text-align: center;
+}
+
+#middelBox {
+    display: flex;
+    justify-content: center;
+}
+
+#hrSeeAds{
+    width: 50%;
+    margin-top: 5px;
+}
+#feedBox {
+
+    width: 300px;
+    border: 1px solid #ddd;
+    padding: 50px;
+    margin: 20px;
+    font-size: 25px;
+    color: #0c4073;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)!important;
+}
+
+#newAdBox {
+
+    width: 300px;
+    border: 1px solid #ddd;
+    padding: 50px;
+    margin: 20px;
+    font-size: 25px;
+    color: #0c4073;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)!important;
+}
+
+#logOut {
+    margin-right: 5px !important;
+}
+#smallMessage{
+    margin-top: 2px;
+}
+
+#logIn {}
+
+.btn-outline-success {
+    color: #7ED321;
+    border-color: #7ED321;
+}
+
+#slogan2 {
+    width:60%;
+}
+
+#forYou {
+
+
+    width: 40%;
+    height: 300px;
+}
+
+/*SIGN UP*/
+#signUpFirstT{
+    text-align:center;
+}
+#logo_Signup {
+    margin-bottom: 10px;
+}
+
+#signupButton,
+#loginButton {
+    background-color: #7ED321;
+    border-color: white;
+}
+
+#selectButton{
+    background-color: #7ED321;
+    border-color: white; 
+}
+
+#uploadButton{
+   margin-top: 5px;
+   margin-bottom: 5px;
+   background-color: #7ED321;
+   border-color: white; 
+}
+
+#footer{
+    margin-bottom: 10px;
+}
+
+#google{
+    margin-top: 8px;
+    margin-left: 2px;
+}
+
+/*User Panel*/
+
+/*#mainBoxUserPanel{*/
+    
+/*}*/
+.hidden{
+    display: none;
+}
+#userImg{
+    text-align:center;
+}
+#col1{
+    border: 2px solid black;
+}
+#col2{
+    border: 2px solid black;
+}
+#col3{
+    border: 2px solid black;
+}
+#bioDiv{
+    font-weight: bold;
+}
+#title1{
+    text-align:center;
+    font-weight:bold;
+}
+#title2{
+    text-align:center;
+    font-weight:bold;
+}
+#rowinside1{
+    /*border: 2px solid red;*/
+    text-align:center;
+    font-weight: bold;
+}
+
+
+
+#rowinside2{
+    /*border: 2px solid red;*/
+    margin-left: 20px;
+}
+#tableListingsDiv{
+    content:center;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+
+
+/*Search Page*/
+.image_row{
+    display: flex;
+    justify-content: center;
+}
+.search_result_image{
+    padding-bottom:0.5em;
+    width: 250px; 
+    height: 250px;
+}
+.image_Wrapper{
+    width:250px; 
+    font-size:80%; 
+    text-align:center;
+}
+
+
+.forYou{
+    display: flex;
+    justify-content: center;
+    margin-top:50px;
+}
+
+
+
+#panelUser{
+    width: 90%;
+}
+
+#imgHome{
+    margin: 10px;
+}
+
+#tableboder{
+    border: 1px solid black;
+}
+
+
+#statBox{
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   
+}
+
+#histogram{
+    justify-content: center; 
+}
+
+td{
+   border-style: groove;
+   margin: 10px;
+}
+
+#tabelHeader{
+    font-size: 20px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+#mostPopular{
+    display:block;
+    margin:auto;
+}
+
+#cardBox{
+   width: 60% !important; 
+}

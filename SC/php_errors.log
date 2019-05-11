@@ -1,0 +1,27 @@
+[10-May-2019 08:28:44 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'ngray'@'localhost' (using password: NO)' in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php:16
+Stack trace:
+#0 /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php(16): PDO->__construct('mysql:host=0.0....', 'ngray', '')
+#1 /home/ubuntu/workspace/git/SC/SC/SC/api/getRandomListing.php(3): getDatabaseConnection()
+#2 {main}
+  thrown in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php on line 16
+[10-May-2019 08:28:46 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'ngray'@'localhost' (using password: NO)' in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php:16
+Stack trace:
+#0 /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php(16): PDO->__construct('mysql:host=0.0....', 'ngray', '')
+#1 /home/ubuntu/workspace/git/SC/SC/SC/api/getCategories.php(3): getDatabaseConnection()
+#2 {main}
+  thrown in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php on line 16
+[10-May-2019 08:28:52 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'ngray'@'localhost' (using password: NO)' in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php:16
+Stack trace:
+#0 /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php(16): PDO->__construct('mysql:host=0.0....', 'ngray', '')
+#1 /home/ubuntu/workspace/git/SC/SC/SC/login/login.php(27): getDatabaseConnection()
+#2 {main}
+  thrown in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php on line 16
+[10-May-2019 08:29:00 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'ngray'@'localhost' (using password: NO)' in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php:16
+Stack trace:
+#0 /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php(16): PDO->__construct('mysql:host=0.0....', 'ngray', '')
+#1 /home/ubuntu/workspace/git/SC/SC/SC/login/login.php(27): getDatabaseConnection()
+#2 {main}
+  thrown in /home/ubuntu/workspace/git/SC/SC/SC/dbConnect.php on line 16
+[10-May-2019 08:30:35 UTC] PHP Warning:  Division by zero in /home/ubuntu/workspace/git/SC/logout/logout.php on line 6
+[10-May-2019 08:30:35 UTC] PHP Stack trace:
+[10-May-2019 08:30:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/git/SC/logout/logout.php:0

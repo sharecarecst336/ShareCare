@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-signin-client_id" content="35845680733-mj1o02ahgc89e94hid0935g4mp0a7nce.apps.googleusercontent.com">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <title>ShareCare Sign up</title>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../css/styles.css" rel="stylesheet">
+    <!-- Styles required by this views -->
+    <style>
+        html,
+        body,
+        main {
+            width: 100%;
+            height: 100%;
+        }
+
+        .open-hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <main class="d-flex align-items-center justify-content-center">
+        <div class="card">
+            <div class="card-body p-4">
+                <img id="logo_Signup" src="../img/resizeSmall.png"></img>
+                <p id="signUpFirstT" class="text-muted">Sign up</p>
+                <form>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <i class="icon-lock"></i></span>
+                        </div>
+                        <input type="name" class="form-control" placeholder="First Name" name="firstName">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <i class="icon-lock"></i></span>
+                        </div>
+                        <input type="name" class="form-control" placeholder="Last Name" name="lastName">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Email" name="signupEmail">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-lock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Password" name="signupPassword">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-lock"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Confirm Password" name="signupPasswordConfirmation">
+                    </div>
+
+                    <button id="signupButton" type="button" class="btn btn-block btn-success">Sign Up</button>
+                    <div id="google" class="g-signin2" data-onsuccess="onSignIn"></div>
+                </form>
+            </div>
+            <!--<div class="card-footer p-4">-->
+            <!--    <div id="message" class="alert alert-danger open-hidden" role="alert">-->
+            <!--    </div>-->
+            </div>
+        </div>
+    </main>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="signupScript.js"></script>
+ 
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<?php 
+include '../dbConnect.php';
+$conn = getDatabaseConnection();
+
+$listingId = $_GET['listingId'];
+$sql = "SELECT * FROM listings WHERE Id = :lId";
+
+$np = array();
+$np[':lId'] = $listingId;
+
+$stmt = $conn->prepare($sql);
+$stmt->execute($np); 
+$records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo json_encode($records);
+
+?>

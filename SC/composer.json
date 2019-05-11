@@ -1,0 +1,7 @@
+{
+    "require": {
+        "monolog/monolog": "1.9.1",
+        "phpdocumentor/phpdocumentor": "2.9.0",
+        "google/apiclient": "v2.2.2"
+    }
+}

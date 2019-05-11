@@ -1,0 +1,219 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['email'])){
+      header("Location: ../login.html");
+    }
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ShareCare</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+    <a class="logo" href="index.html"><img id="logo" src="img/resizeSmall.png"></img></a>
+    <div class="slogan">Environmental Cheering!</div>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="seeAds.html">See ads</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="placeAds.html">Place ads</a>
+        </li>
+        
+      <li class="nav-item">
+          <a id="statsPage" class="nav-link" href="../SC/reports/Statistics.html">Statistics</a>
+        </li>
+        <li class="nav-item">
+          <a id="userProfile"  class="nav-link" href="userProfile/userProfile.html">User profile</a>
+        </li>
+        
+        <!--<li class="nav-item">-->
+        <!--  <a class="nav-link" href="signup/signup.html">Sign up</a>-->
+        <!--</li>-->
+        
+        <li class="nav-item">
+          <a id="signup"  class="nav-link" href="login/login.html">Log in/Sign Up</a>
+        </li>
+        
+        <li class="nav-item">
+          <a id="logout"  class="nav-link" href="logout/logout.php">Log out</a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </nav>
+
+<body>
+   
+    
+      <div id="text">See ads:</div>
+        <hr id="slogan2">
+      
+      
+      <div id="mainBox">
+        <form id="form">
+          
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="TitleSearch">Search for ads</label>
+            <input type="text" class="form-control" id="TitleSearch">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="DescSearch">Search ad descriptions</label>
+            <input type="text" class="form-control" id="DescSearch">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="category">Search ad category</label>
+            <select name="category" class="form-control"><option value="">Select One</option></select>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="form-check">
+            <input type="radio" name="orderBy" value="name" /> Alphabetical <br>
+            <input type="radio" name="orderBy" value="category" /> Category <br>
+          </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-default" id="searchBtn">Search</input>
+          
+        </form> 
+        
+      </div> 
+        <hr id="hrSeeAds">
+       
+      
+      <div id="feed">  
+        <results>
+         
+        </results>
+    </div>
+    <!-- resultsModal -->
+    <div class="modal fade right" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resultsModalTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="resultsModalBody">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+            <button type="button" class="btn btn-success" id="modalRequestBtn">Request Item!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- resultsModal -->
+    
+    <!-- requestModal -->
+    <div class="modal fade right" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="requestModalTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="requestModalBody">
+            <form>
+               <div class="form-group">
+                <label for="checkoutDate">Desired Checkout date (MM-DD-YYYY)</label></label>
+                <input type="text" class="form-control" id="checkoutDate" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="checkinDate">Desired Checkin date (MM-DD-YYYY)</label></label>
+                <input type="text" class="form-control" id="checkinDate" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="requestMessage">Message to owner</label></label>
+                <input type="text" class="form-control" id="requestMessage" placeholder="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+            <button type="button" class="btn btn-success" id="modalSubmitRequestBtn">Submit Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- requestModal -->
+    <!-- confirmationModal -->
+    <div class="modal fade right" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="requestModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmationModalTitle">Success!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="confirmationModalBody">
+           Request Submitted
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- confirmationModal -->
+    <!-- noAuthModal -->
+    <div class="modal fade right" id="noAuthModal" tabindex="-1" role="dialog" aria-labelledby="noAuthModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="noAuthModalTitle">Sign In required</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="noAuthModallBody">
+           You must be signed in to make requests.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+            <button type="button" class="btn btn-success" id="modalSignIn">Sign In</button>
+             <button type="button" class="btn btn-info" id="modalSignUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- noAuthModal -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript" src="seeAdsScript.js"></script>
+
+</body>
+
+</html>

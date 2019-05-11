@@ -1,0 +1,151 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['email'])){
+      header("Location: ../login.html");
+    } else if (!$_SESSION['isLoggedIn']) {
+        http_response_code(403);
+        echo "You are not allowed here";
+        exit();
+    }
+?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ShareCare</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+    <a class="logo" href="index.html"><img id="logo" src="img/resizeSmall.png"></img></a>
+    <div class="slogan">Environmental Cheering!</div>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          
+        <li class="nav-item active">
+          <a id="home" class="nav-link" href="index.html">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="seeAds.html">See ads</a>
+        </li>
+        
+        <li class="nav-item">
+          <a id="placeAds" class="nav-link" href="placeAds.html">Place ads</a>
+        </li>
+        <li class="nav-item">
+          <a id="statsPage" class="nav-link" href="../SC/reports/Statistics.html">Statistics</a>
+        </li>
+        <li class="nav-item">
+          <a id="userProfile" class="nav-link" href="userProfile/userProfile.html">User profile</a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a id="signup" class="nav-link" href="login/login.html">Sign up / Log In</a>
+        </li>
+        
+        <!--<li class="nav-item">-->
+        <!--  <a id="login" class="nav-link" href="login/login.html">Log in</a>-->
+        <!--</li>-->
+        
+        <li class="nav-item">
+          <a  id="logout" class="nav-link" href="logout/logout.php">Log out</a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </nav>
+
+    <div id="text">Place ads:</div>
+    <hr id="slogan2">
+
+    <div id="mainBox">
+        <form id="form2">
+            <div class="form-group">
+                <label for="listingTitle">Ad Title</label>
+                <input type="text" class="form-control" id="listingTitle" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="itemLocation">Item Location</label>
+                <input type="text" class="form-control" id="itemLocation" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="itemDescription">Description</label>
+                <input type="text" class="form-control" id="itemDescription" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="itemAvailability">Availability</label>
+                <input type="text" class="form-control" id="itemAvailability" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="adCategory">Ad Category</label>
+                <select name="category" class="form-control" id="adCategory"><option value="">Select One</option></select>
+            </div>
+
+            <div class="form-group">
+                <div style="display:none;">
+                    <input type="file" multiple name="fileName[]" />
+                </div>
+                <div>
+                    <button id="selectButton" type="button" class="btn btn-primary btn-xs">Pick picture</button>
+                </div>
+                <div id="filesList"></div>
+                <div>
+                    <button id="uploadButton" type="button" class="btn btn-primary btn-xs">Submit</button>
+                </div>
+        </form>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                0%
+            </div>
+        </div>
+            <div id="results"></div>
+        </div>
+        </form>
+    </div>
+        <!-- noAuthModal -->
+    <div class="modal fade right" id="noAuthModal" tabindex="-1" role="dialog" aria-labelledby="noAuthModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="noAuthModalTitle">Sign In required</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="noAuthModallBody">
+           You must be signed in to place ads.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+            <button type="button" class="btn btn-success" id="modalSignIn">Sign In</button>
+             <button type="button" class="btn btn-info" id="modalSignUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- noAuthModal -->
+  
+   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="placeAds.js"></script>
+
+    </body>
+   
+</html>
